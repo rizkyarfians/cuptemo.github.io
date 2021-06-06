@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kontrol & Monitoring Lumbuk Ikan Cupang</title> <!-- Title Web-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <!--Menghubungkan ke file css yaitu style.css -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Input framework JQUERY-->
+    <link rel="icon" href="img/favicon-16x16.png" type="image/gif" sizes="16x16"> <!-- Mengubah Icon Url-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        window.onload = function() {
+
+            var dataPoints = [];
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Daily Sales Data"
+                },
+                axisY: {
+                    title: "Units",
+                    titleFontSize: 24,
+                    includeZero: true
+                },
+                data: [{
+                    type: "column",
+                    yValueFormatString: "#,### Units",
+                    dataPoints: dataPoints
+                }]
+            });
+
+            function addData(data) {
+                for (var i = 0; i < data.length; i++) {
+                    dataPoints.push({
+                        x: new Date(data[i].date),
+                        y: data[i].units
+                    });
+                }
+                chart.render();
+
+            }
+
+            $.getJSON("http:://localhost/iot-testing-68dea-default-rtdb-datalogSuhu-export.json", addData);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <h1>Dashboard</h1>
+            <!--Element h1 untuk menampilkan Heading Dashboard-->
+            <div class="content">
+                <section class="suhuBar">
+                    <!-- Container untuk Bar Suhu-->
+                    <h4 id="suhuAir">Suhu Air</h4> <!-- Element h4 menampilkan Text Suhu Air-->
+                    <h1 id="suhuHTML">0</h1>
+                    <!-- Element h2 pada class suhuBar untuk menampilkan nilai suhu berdasarkan nilai Realtime Database -->
+                    <h4 id="suhuStatus">Normal</h4> <!-- Element untuk menampilkan -->
+                </section>
+                <section class="wrapper">
+                    <!--Container untuk bagian Button-->
+                    <section class="mode">
+                        <h4>Mode Kontrol</h4> <!-- Element h4 menampilkan Text Mode Kontrol-->
+                        <button id="buttonMode">AUTO</button> <!-- button Auto / Manual-->
+                    </section>
+                    <section class="heater">
+                        <h4>Status Heater</h4> <!-- Element h4 menampilkan Text Status Heater-->
+                        <button id="buttonHeater">ON</button> <!-- button Heater ON / OFF-->
+                    </section>
+                    <section class="fan">
+                        <h4>Status Fan</h4> <!-- Element h4 menampilkan Text Status Fan-->
+                        <button id="buttonFan">ON</button> <!-- button Fan ON / OFF-->
+                    </section>
+                </section>
+
+            </div>
+
+
+        </div>
+        <!-- <div class="datalog">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <h1>Datalog</h1>
+           
+            <section id="buttonDatalog">
+                <button id="showData">Show Data</button>
+                <button id="clearData">Clear Data</button>
+            
+            </section>
+
+            <ul class="datalogList">
+               
+
+            </ul>
+        </div> -->
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <!--Menghubungkan ke Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+    <!--Menghubungkan ke Firebase Database-->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+    <!--Menghubungkan ke Firebase Analitik-->
+    <script src="script.js"></script>
+    <!--Menghubungkan ke file JavaScript script.js-->
+</body>
+
+</html>

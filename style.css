@@ -1,0 +1,197 @@
+*{
+    margin: 0%;
+    font-family: Poppins;
+    list-style-type: none;
+}
+
+
+
+.dashboard{
+    text-align: center;
+    width: 100%;
+    height: 650px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.dashboard h1{
+    color: black;
+}
+
+.dashboard h4 { 
+    font-weight: 600;
+}
+.dashboard a{
+    display: inline-block;
+    color: black;
+    width: 50px;
+    height: 25px;
+    border-radius: 15px;
+    background-color: white;
+    text-align: center;
+    line-height: 25px;
+    box-shadow: -1px 3px 2px 2px rgb(160, 160, 160);
+    text-decoration: none;
+    
+}
+
+.content{
+    width: 50%;
+    height: 400px;
+    margin: auto;
+}
+
+#suhuAir{
+    font-weight: bold;
+}
+
+#suhuHTML {
+    color: rgb(34, 167, 127);
+    font-size: 36px;
+}
+.suhuBar {
+    width: 100%;
+    height: 50%;
+    background-color: rgb(255, 255, 255);
+    margin: auto;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: -1px 2px 5px 3px rgb(163, 163, 163);
+    margin-bottom: 25px;
+    border-radius: 15px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+}
+
+.wrapper section{
+    width: 200px;
+    height: 125px;
+    background-color:white;
+    box-shadow: -1px 2px 5px 3px rgb(163, 163, 163);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.wrapper #buttonMode{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    
+    
+}
+
+.wrapper button:hover{
+    background-color: rgb(40, 119, 75);
+    opacity: 0.5;
+    transform: scale(1.1);
+    
+}
+
+.wrapper section button{
+    background-color: rgb(34, 167, 127);
+    width: 65px;
+    height: 65px;
+    box-shadow: -1px 2px 4px 1px rgb(163, 163, 163);
+    margin: auto;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+    text-align: center;
+}
+.wrapper section button.off{
+    background-color: rgb(255, 115, 115);
+}
+
+.datalog{
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    width: 100%;
+}
+
+#buttonDatalog{
+    display: inline;
+    margin: auto;
+}
+
+.datalog h1 { 
+    color: black;
+    text-align: center;
+}
+.datalog ul{
+    text-align: center;
+    width: 1000px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: -1px 2px 4px 1px rgb(163, 163, 163);
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.datalog ul li{
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(34, 167, 127);
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    line-height: 50px;
+    color: white;
+}
+
+.datalog button{
+    background-color: rgb(34, 167, 127);
+    width: 65px;
+    height: 65px;
+    box-shadow: -1px 2px 4px 1px rgb(163, 163, 163);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 12px;
+    text-align: center;
+}
+.datalog button:hover{
+    background-color: rgb(40, 119, 75);
+    opacity: 0.5;
+    transform: scale(1.1);
+    
+}
+
+
+@media only screen and (max-width: 768px) {
+  
+
+    .dashboard{
+        width: 100%;
+        transform: scale(0.9);
+    }
+    /* .dashboard section{
+        
+    } */
+
+    .wrapper section{
+        margin: 10px;
+        width: 300px;
+    }
+  }
